@@ -4,6 +4,9 @@
 ## If not optimized it fails with a error code 1
 
 CHANGEDFILES=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
+echo commit range: $TRAVIS_COMMIT_RANGE
+echo 1: $(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
+echo 2: $(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH)
 
 for FILE in $CHANGEDFILES; do
 	if echo $FILE | grep -q ".png$"; then 
