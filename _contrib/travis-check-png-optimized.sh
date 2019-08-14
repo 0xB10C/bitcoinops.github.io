@@ -3,7 +3,7 @@
 ## Finds newly added or modifyed PNG files in the repository and checks if each file is optimized.
 ## If not optimized it fails with a error code 1
 
-CHANGEDFILES=$(git diff --name-only --diff-filter=AM master...origin/$TRAVIS_BRANCH)
+CHANGEDFILES=$(git diff --name-only --diff-filter=AM $TRAVIS_COMMIT_RANGE)
 
 for FILE in $CHANGEDFILES; do
 	if echo $FILE | grep -q ".png$"; then 
