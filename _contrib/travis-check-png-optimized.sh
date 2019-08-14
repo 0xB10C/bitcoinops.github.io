@@ -9,9 +9,9 @@ for FILE in $CHANGEDFILES; do
 	if echo $FILE | grep -q ".png$"; then 
 		echo checking $FILE
 		OPTIPNGOUTPUT=$(optipng -simulate "$FILE" 2>&1)
-    	if ! echo $OPTIPNGOUTPUT | grep -q "is already optimized"; then
-        	echo "The file $FILE is not optimized. To optimize use 'optipng -o7 $FILE'."
-        	exit 1
-    	fi
+	    	if ! echo $OPTIPNGOUTPUT | grep -q "is already optimized"; then
+        		echo "The file $FILE is not optimized. To optimize use 'optipng -o7 $FILE'."
+        		exit 1
+    		fi
 	fi
 done
